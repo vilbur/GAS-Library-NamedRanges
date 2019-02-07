@@ -1,47 +1,25 @@
-/*======================================================================================*/
-/* PRIVATE MENU METHODS                                                                 */
-/*======================================================================================*/
-
-/**
+/** 
  */
-NamedRanges.prototype.getMenuItems = function(){
-	var items = [
-		['Help', 'NamedRangesDialogHelp'],
-	];
-	/* Add test items - not shown if called library */
-//	if(namespace === ''){
-		items.push('-',
-//			{'Test':[
-				['findNamedRanges(activeRange)', 'findNamedRangesMenu'],
-				['findAllSharedNamedRanges()', 'findAllSharedNamedRangesMenu'],
-                '-',
-				['getPrefixes()  - Get all prefixes', 'getPrefixesMenu'],	
-				['findPrefixes() - Get all prefixes for active range', 'findPrefixesMenu'],								
-                '-',
-				['getA1Notation() - For active range', 'getA1NotationMenu'],
-				['getNames()      - For active range', 'getNamesMenu'],
-				['getRanges()     - For active range', 'getRangesMenu'],
-				['getValues()     - For active range', 'getValuesMenu']	                
-//			]}
-		); 
-//	}
-	return items;
-};
-/**
- */
-NamedRanges.prototype.addMenu = function(){  
-  Menu.create(project_name, this.getMenuItems(), namespace);  
-};
+function addTestMenu() 
+{
+  var ui = SpreadsheetApp.getUi();
+  // Or DocumentApp or FormApp.
+  ui.createMenu('NamedRanges Test')
+  
+  .addItem('findNamedRanges(activeRange)', 'findNamedRangesMenu')
+  .addItem('findAllSharedNamedRanges()', 'findAllSharedNamedRangesMenu')
+  .addSeparator()
+  .addItem('getPrefixes()  - Get all prefixes', 'getPrefixesMenu')
+  .addItem('findPrefixes() - Get all prefixes for active range', 'findPrefixesMenu')
+  .addSeparator()
+  .addItem('getA1Notation() - For active range', 'getA1NotationMenu')
+  .addItem('getNames()      - For active range', 'getNamesMenu')
+  .addItem('getRanges()     - For active range', 'getRangesMenu')
+  .addItem('getValues()     - For active range', 'getValuesMenu')
+  
+  .addToUi(); 
+}
+          
 
-/*======================================================================================*/
-/* PUBLIC MENU METHODS                                                                  */
-/* Each method should has global function in file'~!~Menu.gs'                            */
-/*                                                                                      */
-/*======================================================================================*/
-    
-/**	Each function called from menu must has it`s own call function
-*	Call function name format: {project_name}_{functionName}()
-*/
-NamedRanges.prototype.menuFunction = function() {
-  Browser.msgBox('NamedRanges().menuFunction()');
-};
+
+
