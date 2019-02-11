@@ -12,8 +12,6 @@ var NamedRanges = (function()
 	*/
 	function NamedRanges()
 	{
-		
-		
 		Logger.log( 'NamedRanges()');
 		
 		var self	= this;
@@ -34,7 +32,8 @@ var NamedRanges = (function()
 		 * @param	Range	range_search
 		 * @return	this
 		*/
-		this.findNamedRanges = function(range_search) {
+		this.findNamedRanges = function(range_search)
+		{
 			Logger.log('findNamedRanges('+range_search+')');
 			result	= null;
 			found	= {};
@@ -76,7 +75,8 @@ var NamedRanges = (function()
 		 * @param	Range	Range object or A1notation
 		 * @return	this
 		 */
-		this.findPrefixes = function(range_search){
+		this.findPrefixes = function(range_search)
+		{
 			//Logger.log('findPrefixes('+range_search+')');
 			this.findNamedRanges(range_search);
 			result=null;
@@ -88,7 +88,8 @@ var NamedRanges = (function()
 		 * @param	string	nrange_prefix
 		 * @return	this
 		 */	
-		this.findAllSharedNamedRanges = function (range_search){
+		this.findAllSharedNamedRanges = function (range_search)
+		{
 			Logger.log('findAllSharedNamedRanges('+range_search+')');
 			this.findNamedRanges(range_search);
 			var prefixes	= Object.keys(found);
@@ -110,7 +111,8 @@ var NamedRanges = (function()
 		/**	Get all prefixes
 		 *	return [NamedRangePrefix]|null	array of prefixes for given range, return all prefixes if range is undefined, or null if range has not NamedRanges
 		 */
-		this.getPrefixes = function(range_search){
+		this.getPrefixes = function(range_search)
+		{
 			Logger.log('getPrefixes('+range_search+')');
 			result	= null;
 			if( typeof range_search !== 'undefined' ) // find ranges if range is defined
@@ -124,21 +126,24 @@ var NamedRanges = (function()
 		/**	Get Range objects of NamedRanges
 		 *	return 
 		 */
-		this.getRanges = function(range_name){
+		this.getRanges = function(range_name)
+		{
 			setToResult('ranges', range_name);
 			return this;
 		};
 		/**	Get getA1Notation of NamedRanges
 		 *	return 
 		 */
-		this.getA1Notation = function(range_name){
+		this.getA1Notation = function(range_name)
+		{
 			setToResult('A1Notation', range_name);
 			return this;
 		};
 		/**	Get values of NamedRanges
 		 *	return 
 		 */
-		this.getValues = function(range_name){
+		this.getValues = function(range_name)
+		{
 			setToResult('values', range_name);
 			return this;
 		};
@@ -146,7 +151,8 @@ var NamedRanges = (function()
 		 *	Result of previous function is used if undefined, or this.nranges if result is undefined
 		 *	return [NamedRangeNames] 
 		 */
-		this.getNames = function(range_name){
+		this.getNames = function(range_name)
+		{
 			setToResult('names', range_name);
 			//result = this.toArray();
 			return this;
@@ -157,7 +163,8 @@ var NamedRanges = (function()
 		/**	Get Result or this.nranges
 		 *	return array|object
 		 */
-		this.get = function(){
+		this.get = function()
+		{
 			//return typeof result !== 'undefined' ? result : this.nranges;
 			var result_final = this.nranges;
 			
@@ -173,7 +180,8 @@ var NamedRanges = (function()
 		/**	Convert result to array 
 		 *	return [NamedRange|NamedRangeName|Rage|A1Notation]
 		 */
-		this.toArray = function(){
+		this.toArray = function()
+		{
 			//var result = this.get();
 			var to_array	= this.get();
 			var result_array	= [];
@@ -199,7 +207,8 @@ var NamedRanges = (function()
 		/**	set nranges object
 		*	@return	void 
 		*/
-		var setNamedRanges = function(){
+		var setNamedRanges = function()
+		{
 			Logger.log('setNamedRanges()');
 			self.nranges = {};
 	//		Logger.log('START self.nranges='+JSON.stringify(self.nranges));		
@@ -222,7 +231,8 @@ var NamedRanges = (function()
 		/** convert result to desired output
 		 * @param string fn_name output function name 'getA1Notation'
 		 */
-		var setToResult = function(fn_name, range_name) {
+		var setToResult = function(fn_name, range_name)
+		{
 			result	= {};
 	
 			/** getNamedRange
@@ -262,18 +272,13 @@ var NamedRanges = (function()
 						result[prefix].push(_result);
 				//result[nrange_name] = this[fn_name](self.nranges[prefix][nr]);
 			}}}
-			
 		};
 		/*======================================================================================*/
 		/*  INIT METHODS                                                                        */
 		/*======================================================================================*/	
 		setNamedRanges();
-		
-
 	}
 	return NamedRanges;
-
 	
-//	return typeof NamedRanges !=='object' ? project : this;
-})(); // end of NamedRanges 
+})();
 
