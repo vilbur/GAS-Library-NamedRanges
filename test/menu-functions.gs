@@ -15,8 +15,8 @@ function findNamedRanges()
 	if(nranges===false)
 		namedRangesTestResult('Selected range IS NOT in named ranges' );		
 	else{
-		namedRangesTestResult('getNamedRanges of active cell', nranges.get());
-		namedRangesTestResult('Array of getNamedRanges of active cell', nranges.toArray());		
+		namedRangesTestResult('getNamedRanges of active cell',			nranges.get());
+		namedRangesTestResult('Array of getNamedRanges of active cell',	nranges.toArray());		
 	}
 }
 MENU_NRANGE_TEST.addItem('findNamedRanges(activeRange)', 'findNamedRanges');
@@ -27,8 +27,8 @@ function findAllSharedgetNamedRanges()
 {
 	var nranges	= getNamedRanges().findAllSharedgetNamedRanges( getActiveRange() ).getNames();
 	
-	namedRangesTestResult('All getNamedRanges sharing same prefix',  nranges.get() );
-	namedRangesTestResult('Array of All getNamedRanges sharing same prefix',  nranges.toArray() );	
+	namedRangesTestResult('All getNamedRanges sharing same prefix',				nranges.get() );
+	namedRangesTestResult('Array of All getNamedRanges sharing same prefix',	nranges.toArray() );	
 }
 MENU_NRANGE_TEST.addItem('findAllSharedNamedRanges()', 'findAllSharedNamedRanges').addSeparator();
 
@@ -37,8 +37,8 @@ MENU_NRANGE_TEST.addItem('findAllSharedNamedRanges()', 'findAllSharedNamedRanges
 function getPrefixes()
 {
 	//namedRangesTestResult('Ranges of getNamedRanges for selected range',  getNamedRangesActiveCell().getPrefixes() );
-	namedRangesTestResult('Ranges of All getNamedRanges',  getNamedRanges().getPrefixes() );	
-	namedRangesTestResult('Ranges of getNamedRanges for selected range',  getNamedRanges().getPrefixes(getActiveRange()) );	
+	namedRangesTestResult('Ranges of All getNamedRanges',					getNamedRanges().getPrefixes() );	
+	namedRangesTestResult('Ranges of getNamedRanges for selected range',	getNamedRanges().getPrefixes(getActiveRange()) );	
 }
 MENU_NRANGE_TEST.addItem('getPrefixes()  - Get all prefixes', 'getPrefixes');
 
@@ -57,8 +57,8 @@ MENU_NRANGE_TEST.addItem('findPrefixes() - Get all prefixes for active range', '
 */
 function getA1Notation()
 {
-	namedRangesTestResult('getA1Notations of getNamedRanges for selected range',  getNamedRangesActiveCell().getA1Notation().get() );
-	namedRangesTestResult('getA1Notations of "names" getNamedRanges',  getNamedRanges().getA1Notation().get() );	
+	namedRangesTestResult('getA1Notations of getNamedRanges for selected range',	getNamedRangesActiveCell().getA1Notation().get() );
+	namedRangesTestResult('getA1Notations of "names" getNamedRanges',				getNamedRanges().getA1Notation().get() );	
 }
 MENU_NRANGE_TEST.addItem('getA1Notation() - For active range', 'getA1Notation');
 
